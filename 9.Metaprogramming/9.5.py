@@ -1,12 +1,12 @@
 from functools import wraps,partial
 import logging
-#
+#Вспомогательный декоратор для прикрепления,к функции в качестве атрибута obj
 def attach_wrapper(obj, func = None):
     if func is None:
         return partial(attach_wrapper,obj)
     setattr(obj,func.__name__,func)
     return func
-def logger(level,name = None,message=None):
+def logged(level,name = None,message=None):
     '''
     :param level:уровень логирования 
     :param name: название логера
@@ -32,11 +32,13 @@ def logger(level,name = None,message=None):
             nonlocal logmsg
             logmsg = newmsg
     return decorete
-    @logged(logging.DEBUG)
-    def add(x,y):
-        return x+y
-    @logged(logging.CRITICAL,'example')
-    def spam():
-        print('Spam!')
-    logging.basicConfig(level=logging.DEBUG)
-    add(2,3)
+@logged(logging.DEBUG)
+def add(x,y):
+    return x+y
+@logged(logging.CRITICAL,'example')
+def spam():
+    print('Spam!')
+
+
+
+
