@@ -44,14 +44,14 @@
 # c = C()
 # print(C.__mro__)
 
-class A:
-    def spam(self):
-        print('A.spam')
-        super().spam()
-class B:
-    def spam(self):
-        print('B.spam')
-class C(A,B):
-    pass
-c = C()
-print(c.spam())
+# class A:
+#     def spam(self):
+#         print('A.spam')
+#         super().spam()
+# class B:
+#     def spam(self):
+#         print('B.spam')
+# class C(A,B):
+#     pass
+# c = C()
+# print(c.spam())
